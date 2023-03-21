@@ -1,0 +1,61 @@
+@use "@/assets/styles/_breackpoints.scss" as *;
+
+.ui-select {
+  display: flex;
+  align-items: center;
+  color: #000;
+  font-size: 1.3rem;
+  font-family: sans-serif;
+  position: relative;
+
+  &__title {
+    color: #fff;
+    margin-right: 0.5rem;
+  }
+
+  &__field {
+    display: flex;
+    position: relative;
+  }
+
+  &__input {
+    width: 100px;
+    background: #fff;
+    border: none;
+    padding: 0.2rem 0.3rem;
+
+    @include media("<small") {
+      width: 70px;
+    }
+  }
+
+  &__button {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%);
+    background: transparent;
+    border: none;
+    padding: 0.6rem;
+  }
+
+  &__options {
+    background: #fff;
+    border-top: 0.1rem solid #8424b7;
+    width: 10rem;
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+
+    &-item {
+      cursor: pointer;
+      padding: 0.5rem;
+
+      &:hover {
+        background: #96648082;
+      }
+    }
+
+  }
+}

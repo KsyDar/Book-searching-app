@@ -1,0 +1,27 @@
+@use "@/assets/styles/_breackpoints.scss" as *;
+
+.ui-searcher {
+  display: flex;
+  position: relative;
+
+  &__input {
+    width: 350px;
+    padding: 2px 3px;
+
+    @include media("<small") {
+      width: 200px;
+    }
+  }
+
+  &__button {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%);
+    background: transparent;
+    border: none;
+    padding: 0.2rem 0 0;
+  }
+}

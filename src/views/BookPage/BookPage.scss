@@ -1,0 +1,87 @@
+@use "@/assets/styles/_breackpoints.scss" as *;
+
+.book-page {
+  display: flex;
+  height: calc(100% - 17.4rem);
+  font-family: sans-serif;
+
+  &__image {
+    width: 45%;
+    //padding: 5rem 15rem;
+    background: #afb2b44f;
+
+    &-wrapper {
+      width: 400px;
+      height: 600px;
+      margin: 3rem auto;
+
+      @include media("<=large", ">medium") {
+        width: 350px;
+        height: 550px;
+      }
+
+      @include media("<=medium", ">small") {
+        width: 200px;
+        height: 300px;
+      }
+    }
+  }
+
+  &__info {
+    padding: 5rem;
+    background: #fff;
+    width: 55%;
+
+    @include media("<small") {
+      width: 100%;
+    }
+  }
+
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 2.5rem;
+
+    &-item {
+      color: #cf1796;
+      border: 1px solid #cf1796;
+      border-radius: 1rem;
+      padding: 0.5rem;
+
+      & + & {
+        margin-left: 1rem;
+      }
+    }
+
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+
+    @include media("<small") {
+      font-size: 2rem;
+    }
+  }
+
+  &__author {
+    color: #959697;
+    font-size: 1.3rem;
+    text-decoration: underline;
+  }
+
+  &__description {
+    height: 32rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #afb2b44f;
+    font-weight: 700;
+    font-size: 1.5rem;
+
+    @include media("<small") {
+      font-size: 1rem;
+    }
+  }
+}
