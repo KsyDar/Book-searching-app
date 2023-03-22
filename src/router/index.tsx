@@ -1,5 +1,5 @@
 import {createBrowserRouter} from "react-router-dom";
-import BookList from "../views/BookList/BookList";
+import BookCase from "../views/BookCase/BookCase";
 import BookPage from "../views/BookPage/BookPage";
 import App from "../App";
 
@@ -10,7 +10,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <BookList/>,
+                element: <BookCase/>,
             },
             {
                 path: "/:bookId",

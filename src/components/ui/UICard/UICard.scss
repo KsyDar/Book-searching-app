@@ -10,6 +10,8 @@
   font-size: 1.3rem;
   font-family: sans-serif;
   margin-top: 2rem;
+  overflow: hidden;
+  cursor: pointer;
 
   @include media("<=large", ">medium") {
     width: 200px;
@@ -52,5 +54,7 @@
     color: #000;
     font-weight: 900;
     margin: 1rem 0;
+    height: 50px;
+    overflow: hidden;
   }
 }

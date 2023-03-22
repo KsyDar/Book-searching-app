@@ -2,12 +2,11 @@
 
 .book-page {
   display: flex;
-  height: calc(100% - 17.4rem);
   font-family: sans-serif;
+  min-height: calc(100% - 17.4rem);
 
   &__image {
     width: 45%;
-    //padding: 5rem 15rem;
     background: #afb2b44f;
 
     &-wrapper {
@@ -28,7 +27,7 @@
   }
 
   &__info {
-    padding: 5rem;
+    padding: 3rem;
     background: #fff;
     width: 55%;
 
@@ -73,12 +72,13 @@
   }
 
   &__description {
-    height: 32rem;
+    min-height: 32rem;
     margin-top: 1.5rem;
     padding: 1rem;
     border: 1px solid #afb2b44f;
     font-weight: 700;
     font-size: 1.5rem;
+    line-height: 2rem;
 
     @include media("<small") {
       font-size: 1rem;
