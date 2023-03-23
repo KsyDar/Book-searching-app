@@ -1,25 +1,26 @@
-import {ReactComponent as SearchIcon} from "../../../assets/icons/searchIcon.svg"
-import "./UISearcher.scss"
+import {ReactComponent as SearchIcon} from "../../assets/icons/searchIcon.svg"
+import "./BookSearcher.scss"
 import {useState} from "react";
 import {observer} from "mobx-react";
-import {BooksStoreClass} from "../../../store/BooksStore";
 import {useLocation, useNavigate} from "react-router";
+import {booksStore} from "../../store/BooksStore";
 
-type PropType = {
-    booksStore: BooksStoreClass;
-}
-const UISearcher = observer((props: PropType) => {
+
+const BookSearcher = observer(() => {
     const [value, setValue] = useState<string>("");
 
     const location = useLocation();
     const navigate = useNavigate();
-    const search = () => {
+
+    /**
+     * Функция поиска книг
+     */
+    const search = async () => {
         if (location.pathname !== "/") {
             navigate("/")
         }
-        props.booksStore.resetStore();
-        props.booksStore.setSearch(value, "value");
-        props.booksStore.getBooks();
+        booksStore.setSearch(value, "value");
+        await booksStore.getBooks();
     }
 
     return (
@@ -47,4 +48,4 @@ const UISearcher = observer((props: PropType) => {
     )
 })
 
-export default UISearcher
+export default BookSearcher

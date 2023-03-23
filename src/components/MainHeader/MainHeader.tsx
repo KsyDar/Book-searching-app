@@ -1,9 +1,9 @@
 import "./MainHeader.scss"
-import UISearcher from "../ui/UISearcher/UISearcher";
+import BookSearcher from "../BookSearcher/BookSearcher";
 import UISelect from "../ui/UISelect/UISelect";
 import {HasIdName} from "../../types/data";
-import { v4 } from "uuid"
-import {BooksStore} from "../../store/BooksStore";
+import { v4 } from "uuid";
+import {booksStore} from "../../store/BooksStore";
 
 type PropType = {
     title: string;
@@ -50,20 +50,25 @@ function MainHeader(props: PropType) {
         },
     ]
 
+    const search = (value: string, dataType: "value" | "orderBy" | "subject") => {
+        booksStore.setSearch(value, dataType);
+        booksStore.getBooks();
+    }
+
     return (
         <header className="header">
             <h1 className="header__title">{props.title}</h1>
-            <UISearcher booksStore={BooksStore}/>
+            <BookSearcher />
             <div className="header__filters">
                 <UISelect
                     title="Categories"
                     options={categories}
-                    onSelect={(value) => BooksStore.setSearch(value, "subject")}
+                    onSelect={(value) => search(value, "subject")}
                 />
                 <UISelect
                     title="Sorting by"
                     options={sortOptions}
-                    onSelect={(value) => BooksStore.setSearch(value, "orderBy")}
+                    onSelect={(value) => search(value, "orderBy")}
                 />
             </div>
         </header>

@@ -2,7 +2,8 @@
 
 .ui-select {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   color: #000;
   font-size: 1.3rem;
   font-family: sans-serif;
@@ -10,7 +11,7 @@
 
   &__title {
     color: #fff;
-    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 
   &__field {

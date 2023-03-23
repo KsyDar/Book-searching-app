@@ -5,14 +5,20 @@ import {ReactComponent as ArrowIcon} from "../../../assets/icons/arrowIcon.svg";
 import {useOnClickOutside} from "usehooks-ts";
 
 type PropType = {
+    /** Название селекта */
     title: string;
+    /** Варианты выбора */
     options: HasIdName[];
+    /** Событие при выборе опции */
     onSelect: (value: string) => void;
 }
 function UISelect(props: PropType) {
     const [ isOpen, setIsOpen ] = useState<boolean>(false);
     const [ selectedOption, setSelectedOption ] = useState<HasIdName>(props.options[0]);
 
+    /**
+     * Функция выбора опции
+     */
     const select = (option: HasIdName) => {
         setSelectedOption(option);
         setIsOpen(false);

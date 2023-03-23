@@ -6,23 +6,23 @@
   min-height: calc(100% - 17.4rem);
 
   &__image {
-    width: 45%;
-    background: #afb2b44f;
+    width: 400px;
+    height: 600px;
+    margin: 3rem auto;
+
+    @include media("<=large", ">medium") {
+      width: 350px;
+      height: 550px;
+    }
+
+    @include media("<=medium", ">small") {
+      width: 200px;
+      height: 300px;
+    }
 
     &-wrapper {
-      width: 400px;
-      height: 600px;
-      margin: 3rem auto;
-
-      @include media("<=large", ">medium") {
-        width: 350px;
-        height: 550px;
-      }
-
-      @include media("<=medium", ">small") {
-        width: 200px;
-        height: 300px;
-      }
+      width: 45%;
+      background: #afb2b44f;
     }
   }
 

@@ -2,21 +2,22 @@ import "./BookPage.scss"
 import {useWindowSize} from "usehooks-ts";
 import {observer} from "mobx-react";
 import {Book} from "../../types/data";
-import {BooksStore} from "../../store/BooksStore";
+import {booksStore} from "../../store/BooksStore";
+import ProtectedRoute from "../../router/guards/ProtectedRoute";
 
 const BookPage = observer(() => {
     const {width} = useWindowSize();
-    const book: Book | null = BooksStore.selectedBook;
+    const book: Book | null = booksStore.selectedBook;
 
     return (
-        <>
+        <ProtectedRoute>
             {
                 book !== null &&
                 <main className="book-page">
                     {
                         width > 700 &&
-                        <div className="book-page__image">
-                            <div className="book-page__image-wrapper">
+                        <div className="book-page__image-wrapper">
+                            <div className="book-page__image">
                                 <img src={book.imageLinks?.thumbnail} alt=""/>
                             </div>
                         </div>
@@ -26,8 +27,8 @@ const BookPage = observer(() => {
                         <ul className="book-page__categories">
                             {
                                 book.categories && book.categories.length !== 0 ?
-                                    book.categories.map(category => (
-                                        <li key={book.categories?.indexOf(category)}
+                                    book.categories.map((category, index) => (
+                                        <li key={category}
                                             className="book-page__categories-item">
                                             {category}
                                         </li>
@@ -39,13 +40,18 @@ const BookPage = observer(() => {
                             }
                         </ul>
 
-                        <h1 className="book-page__title">{book.title}</h1>
+                        {
+                            book.title ?
+                                <h1 className="book-page__title">{book.title}</h1>
+                                :
+                                <h1 className="book-page__title">No title</h1>
+                        }
 
                         {
                             book.authors && book.authors.length !== 0 ?
                                 book.authors.map(author => (
                                     <span
-                                        key={book.authors?.indexOf(author)}
+                                        key={author}
                                         className="book-page__author"
                                     >
                                         {author}
@@ -64,7 +70,7 @@ const BookPage = observer(() => {
                     </div>
                 </main>
             }
-        </>
+        </ProtectedRoute>
     )
 });
 

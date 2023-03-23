@@ -1,14 +1,21 @@
-import "./UICard.scss"
-import {Book} from "../../../types/data";
+import "./BookCard.scss"
+import {Book} from "../../types/data";
 import {useNavigate} from "react-router";
 
 type PropType = {
+    /** Книга */
     book: Book;
+    /** Событие при клике на карточку */
     onSelect: (book: Book) => void;
 }
 
-function UICard(props: PropType) {
+function BookCard(props: PropType) {
     const navigate = useNavigate();
+
+    /**
+     * Функция перехода на страницу книги
+     * @param book
+     */
     const goToBookPage = (book: Book) => {
         props.onSelect(book);
         navigate(`/:${props.book.id}`);
@@ -39,7 +46,7 @@ function UICard(props: PropType) {
                         {props.book.title}
                     </div> :
                     <div className="ui-card__description">
-                        Without title
+                        No title
                     </div>
             }
 
@@ -48,4 +55,4 @@ function UICard(props: PropType) {
     )
 }
 
-export default UICard
+export default BookCard

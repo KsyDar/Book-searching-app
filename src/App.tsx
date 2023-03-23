@@ -4,12 +4,12 @@ import {Outlet} from "react-router";
 
 function App() {
 
-  return (
-    <div className="App">
-        <MainHeader title="Search for books"/>
-        <Outlet/>
-    </div>
-  )
+    return (
+        <div className="app">
+            <MainHeader title="Search for books"/>
+            <Outlet/>
+        </div>
+    )
 }
 
 export default App

@@ -1,0 +1,31 @@
+@use "@/assets/styles/_breackpoints.scss" as *;
+
+.book-list {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2rem;
+
+  @include media("<=large", ">medium") {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include media("<=medium", ">small") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media("<=small", ">extra-small") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media("<=extra-small") {
+    grid-template-columns: 1fr;
+  }
+
+  & > li {
+
+    @include media("<=extra-small") {
+      width: 90%;
+    }
+  }
+}
