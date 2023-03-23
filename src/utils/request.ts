@@ -5,7 +5,7 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use((req) => {
-    const key = "AIzaSyAiRrtJFChoTA2TdyvwfvAp5zIYoHE9hqQ";
+    const key = import.meta.env.VITE_GOOGLE_API_KEY;
     req.params = {
         ...req.params,
         key: key,
